@@ -1,0 +1,121 @@
+body{
+    background-color: beige;
+}
+.header{
+    position: absolute;
+    background-color: peru;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+}
+.textHeader{
+    position: absolute;
+    margin-left: 120px;
+    margin-top: 15px;
+    height: 60px;
+    width:300px;
+    font-weight: bold;
+    font-size: 52px;
+    font-style: revert;
+    font-family: Bebas Neue;
+    color: #d5d5d5;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.simple-button{
+    position: relative;
+    margin-top: 20px;
+    display: inline-block;
+    width: 200px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 45px;
+    font-family: Arial;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    background: gray;
+    transition: .3s;
+}
+
+.form{
+    position: relative;
+    margin-left: 550px;
+    margin-top: 300px;
+}
+
+
+.field {
+    width:30%;
+    resize: vertical;
+    padding:15px;
+    border-radius:15px;
+    border:0;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:30px;
+    margin-top: 20px;
+}
+
+.formbooking{
+    position: relative;
+    margin-left: 550px;
+    margin-top: 200px;
+}
+
+.fieldb {
+    width:30%;
+    resize: vertical;
+    padding:15px;
+    border-radius:15px;
+    border:0;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:30px;
+}
+
+
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}
+
+
+.select {
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+    position: relative;
+min-width: 15ch;
+max-width: 30ch;
+
+border: 1px solid gray;
+border-radius: 0.25em;
+padding: 0.25em 0.5em;
+
+font-size: 1.25rem;
+cursor: pointer;
+line-height: 1.1;
+background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+
+}
+   select:focus + .focus {
+       position: absolute;
+       top: -1px;
+       left: -1px;
+       right: -1px;
+       bottom: -1px;
+       border: 2px solid gray;
+       border-radius: inherit;
+   }
+
+s

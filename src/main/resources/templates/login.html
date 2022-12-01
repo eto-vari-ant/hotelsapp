@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="/static/css/auth.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="header">
+    <a class="textHeader">HolidayGo!</a>
+</div>
+<form th:action="@{/login}" method="post" class="formlogin">
+    <div>
+        <label for="email"></label>
+        <input type="text" id="email" name="email" placeholder="Email" class="field">
+    </div>
+    <div>
+        <label for="password"></label>
+        <input type="password" id="password" name="password" placeholder="Пароль" class="field">
+    </div>
+    <div th:if="${error}" th:text="${error}"></div>
+    <div><input type="submit" value="Войти" class="simple-button"/></div>
+</form>
+<span><a href="/" th:href="@{/registration}" class="create">Создать аккаунт</a></span>
+</body>
+</html>

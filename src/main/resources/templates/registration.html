@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link href="/static/css/auth.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="header">
+    <a class="textHeader">HolidayGo!</a>
+</div>
+<form th:action="@{/registration}" th:object="${user}" method="post" class="formregistr">
+    <label for="name"></label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Имя" class="field">
+    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+    <div></div>
+    <label for="surname"></label>
+    <input type="text" th:field="*{surname}" id="surname" placeholder="Фамилия" class="field">
+    <td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></td>
+    <div></div>
+    <label for="email"></label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email" class="field">
+    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
+    <div></div>
+    <label for="password"></label>
+    <input type="password" th:field="*{password}" id="password" placeholder="Пароль" class="field">
+    <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></td>
+    <div></div>
+    <input type="submit" value="Зарегистрироваться" class="simple-button">
+</form>
+</body>
+</html>

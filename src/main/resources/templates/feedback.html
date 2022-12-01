@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Добавить отзыв</title>
+  <link href="/static/css/additional.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="header">
+  <a class="textHeader">HolidayGo!</a>
+</div>
+<form th:action="@{/feedback/{id}(id=${hotel.id})}" th:object="${feedback}" method="post" class="form">
+  <label for="stars"></label>
+  <input type="number" th:field="*{stars}" id="stars" placeholder="Количество звезд" class="field">
+  <td th:if="${#fields.hasErrors('stars')}" th:errors="*{stars}"></td>
+  <div></div>
+  <label for="text"></label>
+  <input type="text" th:field="*{text}" id="text" placeholder="Отзыв" class="field">
+  <td th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></td>
+  <div></div>
+  <input type="submit" value="Оставить отзыв" class="simple-button">
+</form>
+</body>
+</html>

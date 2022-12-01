@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotels</title>
+    <link href="/static/css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="header">
+        <a class="textHeader">HolidayGo!</a>
+    </div>
+    <div class="allFilters">
+        <form th:action="@{/search}" method="get" th:object="${filter}">
+            <div class="country">
+                <label>Страна:</label>
+                <ul>
+                    <li th:each="country : ${countries}">
+                        <input type="checkbox" th:text="${country}" th:value="${country}" th:field="*{countries}"/>
+                    </li>
+                </ul>
+            </div>
+            <div class="nutrition">
+                <label>Тип питания:</label>
+                <ul>
+                    <li th:each="nutrition : ${allNutrition}">
+                        <input type="checkbox" th:text="${nutrition.type}" th:value="${nutrition.type}" th:field="*{nutritions}"/>
+                    </li>
+                </ul>
+            </div>
+            <div class="stars">
+                <label>Рейтинг(количество звезд):</label>
+                <ul>
+                    <li th:each="star : ${stars}">
+                        <input type="checkbox" th:text="${star}" th:value="${star}" th:field="*{stars}"/>
+                    </li>
+                </ul>
+            </div>
+            <div class="price">
+            <div>
+                <label>От($/ночь):</label>
+                <a></a>
+                <input type="number" th:field="*{minCost}" th:value="${minCost}" placeholder="integer" class="textField"/>
+            </div>
+            <div>
+                <label>До($/ночь):</label>
+                <a></a>
+                <input type="number" th:field="*{maxCost}" th:value="${maxCost}" placeholder="integer" class="textField" />
+            </div>
+            </div>
+            <div class="filterButton">
+                <button type="submit" class="findHotels">Подобрать</button>
+            </div>
+        </form>
+    </div>
+    <div class="listHotels">
+        <span th:if="${#lists.isEmpty(hotels)}">The list of hotels is empty.</span>
+        <span th:unless="${#lists.isEmpty(hotels)}">
+            <table>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr th:each="hotel, iStat : ${hotelPage.content}" >
+                    <td> <img height="200" th:src="${'/static/img/' + hotel.getPictures().get(0).name}" class="hotelImage"/> </td>
+                    <td th:text="${hotel.name}  + ', ' + ${hotel.stars} + '★'" class="nameStars"></td>
+                    <td th:text="${hotel.nutrition}" class="nutritionInf"></td>
+                    <td th:text="${hotel.city} + ', ' + ${hotel.country}" class="cityCountry"></td>
+                    <td th:text="'От ' + ${hotel.minCost} + '$/ночь'" class="minCost"></td>
+                    <td>
+                        <form th:action="@{'/'+${hotel.id}}" method="get">
+                            <button class="moreInf">Подробнее</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <div class="forMargin">
+            <div class="pagination" th:if="${hotelPage.totalPages > 0}" th:each="pageNumber : ${pageNumbers}">
+                <a th:href="@{/(page=${pageNumber})}" th:text="${pageNumber}"></a>
+            </div>
+            </div>
+        </span>
+
+    </div>
+</body>
+</html>

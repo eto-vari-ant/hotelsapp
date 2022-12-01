@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Забронировать отель</title>
+    <link href="/static/css/additional.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="header">
+    <a class="textHeader">HolidayGo!</a>
+</div>
+<form th:action="@{/booking/{id}(id=${hotel.id})}" th:object="${booking}" method="post" class="formbooking">
+    <p>Выберите вид комнаты</p>
+    <div class="select">
+    <select th:field="*{cost}" id="standard-select">
+        <option th:each="cost: ${costs}" th:value="${cost.id}" th:text="${cost.getRoom().getType() + ', ' + cost.getCost() + ' $/ночь'}"></option>
+    </select>
+    </div>
+    <div></div>
+    <p>Введите дату заезда</p>
+    <label for="startDate"></label>
+    <input type="date" th:field="*{startDate}" id="startDate" placeholder="Дата заезда" class="fieldb">
+    <td th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></td>
+    <div></div>
+    <p>Введите количество дней</p>
+    <label for="dayAmount"></label>
+    <input type="number" th:field="*{dayAmount}" id="dayAmount" placeholder="Количество дней" class="fieldb">
+    <td th:if="${#fields.hasErrors('dayAmount')}" th:errors="*{dayAmount}"></td>
+    <div></div>
+    <input type="submit" value="Забронировать" class="simple-button">
+</form>
+</body>
+</html>

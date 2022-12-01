@@ -1,0 +1,133 @@
+body{
+    background-color: beige;
+}
+.header{
+    position: absolute;
+    background-color: peru;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+}
+.textHeader{
+    position: absolute;
+    margin-left: 120px;
+    margin-top: 15px;
+    height: 60px;
+    width:300px;
+    font-weight: bold;
+    font-size: 52px;
+    font-style: revert;
+    font-family: Bebas Neue;
+    color: #d5d5d5;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+.allFilters{
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 30px;
+    border: 1px solid saddlebrown;
+    border-radius: 15px;
+    width: 93%;
+    height: 35%;
+}
+.country{
+    position: absolute;
+    width: 180px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.nutrition{
+    position: absolute;
+    margin-left: 200px;
+    width: 500px;
+    margin-top: 15px;
+}
+.stars{
+    position: absolute;
+    margin-left: 750px;
+    width: 100px;
+    margin-top: 15px;
+}
+.price{
+    position: absolute;
+    margin-left: 950px;
+    margin-top: 15px;
+}
+.filterButton{
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 1130px;
+}
+.textField{
+    padding:10px;
+    border-radius:10px;
+    width: 30%;
+}
+.findHotels{
+    display: inline-block;
+    width: 200px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 45px;
+    font-family: Arial;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    background: saddlebrown;
+    transition: .3s;
+}
+.listHotels{
+    position: absolute;
+    margin-top: 400px;
+    margin-left: 30px;
+}
+.hotelImage{
+    padding-bottom: 30px;
+    padding-right: 30px;
+}
+.nameStars{
+    position: absolute;
+    width: 400px;
+}
+.nutritionInf{
+    position: absolute;
+    width: 500px;
+    margin-top: 40px;
+}
+.cityCountry{
+    position: absolute;
+    width: 300px;
+    margin-top: 70px;
+}
+.minCost{
+    position: absolute;
+    width: 300px;
+    margin-left: 600px;
+}
+.moreInf{
+    position: absolute;
+    margin-left: 580px;
+    margin-top: -70px;
+    display: inline-block;
+    width: 130px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 45px;
+    font-family: Arial;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    background: gray;
+    transition: .3s;
+}
+.pagination{
+    display: inline-block;
+}
+.forMargin{
+    margin-left: 700px;
+    margin-bottom: 30px;
+}

@@ -1,0 +1,102 @@
+body{
+    background-color: beige;
+}
+.header{
+    position: absolute;
+    background-color: peru;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+}
+.textHeader{
+    position: absolute;
+    margin-left: 120px;
+    margin-top: 15px;
+    height: 60px;
+    width:300px;
+    font-weight: bold;
+    font-size: 52px;
+    font-style: revert;
+    font-family: Bebas Neue;
+    color: #d5d5d5;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.simple-button{
+    position: relative;
+    margin-top: 20px;
+    display: inline-block;
+    width: 200px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 45px;
+    font-family: Arial;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    background: gray;
+    transition: .3s;
+}
+
+.formlogin{
+    position: relative;
+    margin-left: 550px;
+    margin-top: 300px;
+}
+
+.formregistr{
+    position: relative;
+    margin-left: 550px;
+    margin-top: 150px;
+}
+
+.create{
+    position: relative;
+    margin-left: 550px;
+    margin-top: 20px;
+}
+
+.field {
+    width:30%;
+    resize: vertical;
+    padding:15px;
+    border-radius:15px;
+    border:0;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:30px;
+    margin-top: 20px;
+}
+
+span{
+    position: relative;
+    margin-top: 20px;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+}
+
+a:link {
+    color: saddlebrown;
+}
+
+a:visited {
+    color: dimgray;
+}
+
+a:focus {
+    border-bottom: 1px solid;
+}
+
+a:hover {
+    border-bottom: 1px solid;
+}
+
+a:active {
+    color: black;
+}

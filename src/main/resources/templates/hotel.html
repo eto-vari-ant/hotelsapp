@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotels</title>
+    <link href="/static/css/hotel.css" rel="stylesheet" type="text/css">
+    <script src="/static/js/slider.js"></script>
+</head>
+<body>
+  <div class="header">
+    <a class="textHeader">HolidayGo!</a>
+  </div>
+  <div>
+  <div class="pictures">
+      <tr th:each="picture : ${hotel.getPictures()}">
+          <td><img height="300" th:src="${'/static/img/' + picture.name}" class="picture" hidden/></td>
+      </tr>
+      <div><img height="300" th:src="${'/static/img/' + hotel.getPictures().get(0).name}" class="picture"></div>
+      <a class="previous" onclick="previousSlide()">&#10094;</a>
+      <a class="next" onclick="nextSlide()">&#10095;</a>
+  </div>
+  <div class="fullDescription">
+    <div>
+        <td th:text="${hotel.getName()} + ', ' + ${hotel.getStars()} + '★'" class="hotel-name" th:size="40px"></td>
+    </div>
+    <div>
+        <td th:text="${hotel.getCity()} + ', ' + ${hotel.getCountry()}" class="hotel-country"></td>
+    </div>
+    <div>
+        <td th:text="${hotel.getNutrition()}" class="hotel-nutrition"></td>
+    </div>
+    <div>
+        <td th:text="${hotel.getDescription()}" class="hotel-description"></td>
+    </div>
+    <div>
+        <td th:text="'Количество комнат: '+ ${hotel.getRoomNumber()}" class="hotel-room-number"></td>
+    </div>
+    <div>
+        <td th:text="'Расстояние до моря(км): '+ ${hotel.getSeaDistance()}" class="hotel-sea-distance"></td>
+    </div>
+  </div>
+  </div>
+    <div class="services">
+        <p th:text="'В отеле представлены следующие удобства: '"></p>
+        <tr th:each="service: ${hotel.getServices()}">
+          <td th:text="${service.type} + ', '"></td>
+        </tr>
+    </div>
+    <div>
+        <td th:text="${hotel.getLongitude()} + ' ' + ${hotel.getLatitude()}"></td>
+    </div>
+  <div class="feedbacks">
+      <span th:if="${#lists.isEmpty(hotel.getFeedbacks())}">Никто еще не оставил отзывы о данном отеле!</span>
+      <span th:unless="${#lists.isEmpty(hotel.getFeedbacks())}">
+      <table>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+          <p th:text="'Отзывы: '"></p>
+        <tr th:each="feedback: ${hotel.getFeedbacks()}">
+          <p><td th:text="${feedback.getUser().getName()} + ' ' + ${feedback.getUser().getSurname()} + ', ' + ${feedback.getStars()} + '★' + ' - ' + ${feedback.getText()}"></td></p>
+        </tr>
+      </table>
+    </span>
+  </div>
+  <div>
+      <form th:action="@{'/feedback/'+${hotel.id}}" method="get">
+          <button class="simple-button">Оставить отзыв</button>
+      </form>
+  </div>
+  <div>
+      <form th:action="@{'/booking/'+${hotel.id}}" method="get">
+          <button class="simple-button">Забронировать</button>
+      </form>
+  </div>
+</body>
+</html>
